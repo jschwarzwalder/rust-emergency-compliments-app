@@ -8,3 +8,4 @@ edition = "2018"
 
 [dependencies]
 simple-server="0.4"
+motivations = "1.1.2"

@@ -1,6 +1,7 @@
 extern crate simple_server;
 
 use simple_server::Server;
+use motivations::MOTIVATIONS;
 
 fn main() {
     const template: &str = r#"<!DOCTYPE html>
@@ -10,7 +11,7 @@ fn main() {
             <link rel="stylesheet" href="styles.css"/>
             <style>
             body {
-                background: url('img/crab-13.jpg'); 
+                background: url('img/crab-{{image}}.jpg'); 
                 background-size: cover;
             }
             </style>
@@ -22,14 +23,15 @@ fn main() {
             <div class="container">
             <h1>
                 <div class="motivation">
-                hey girl
+                {{ motivation }}
                 </div>
             </h1>
             </div>
         </body>
         </html>"#;
     let server = Server::new(|request, mut response| {
-        Ok(response.body(template.as_bytes().to_vec())?)
+        let mut new_template = MOTIVATIONS[0];
+        Ok(response.body(new_template.as_bytes().to_vec())?)
     });
 
     
