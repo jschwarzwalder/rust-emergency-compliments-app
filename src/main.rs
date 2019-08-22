@@ -5,6 +5,7 @@ use motivations::MOTIVATIONS;
 use pick_one::pick_one_str;
 use handlebars::Handlebars;
 use std::collections::BTreeMap;
+use std::env::var;
 
 fn main() {
 
@@ -25,7 +26,7 @@ fn main() {
 
     
 
-    server.listen("localhost", "4000");
+    server.listen("0.0.0.0", &var("PORT").unwrap());
 
     
 }
