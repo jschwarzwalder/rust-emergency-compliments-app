@@ -9,3 +9,5 @@ edition = "2018"
 [dependencies]
 simple-server="0.4"
 motivations = "1.1.2"
+pick-one = "1.0.1"
+handlebars = "2.0.1"
